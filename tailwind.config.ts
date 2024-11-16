@@ -7,11 +7,19 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+    colors: {
+      white: "#FFF",
+      black: "#151514",
+      "orange-300": "#FFBD70",
+      "orange-500": "#FF8A00",
+      "blue-50": "#F6F9FF",
+      "blue-100": "#EEF2FF",
+      "blue-400": "#487AF9",
+      "blue-500": "#003CB7",
+      "blue-600": "#284277",
+      "green-50": "#F0FDFA",
+      "gray-100": "#D9D9D9",
+      "gray-500": "#737373",
     },
   },
   plugins: [],
