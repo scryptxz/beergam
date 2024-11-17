@@ -8,13 +8,15 @@ export default function Navbar() {
   const [expand, setExpand] = useState(false);
   return (
     <nav
-      className={`fixed flex flex-col items-center justify-between px-5 py-7 h-[80%] top-5 left-4 text-white backdrop-blur-xl rounded-3xl z-20 max-sm:hidden ${
+      className={`fixed left-4 top-5 z-20 flex h-[90%] flex-col items-center justify-between rounded-3xl px-5 py-7 text-white backdrop-blur-xl max-sm:hidden ${
         expand && "animate-expandMenu"
-      }`}>
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-600 to-blue-500 opacity-70 rounded-3xl shadow-2xl shadow-black"></div>
+      }`}
+    >
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-blue-600 to-blue-500 opacity-70 shadow-2xl shadow-black"></div>
       <button
-        className="absolute -right-2 top-7 bg-blue-600 bg-opacity-60 border border-white rounded-full p-1"
-        onClick={() => setExpand(!expand)}>
+        className="absolute -right-2 top-7 rounded-full border border-white bg-blue-600 bg-opacity-60 p-1"
+        onClick={() => setExpand(!expand)}
+      >
         {expand ? (
           <Icon icon="cuida:caret-left-outline" width={10} />
         ) : (
@@ -22,9 +24,10 @@ export default function Navbar() {
         )}
       </button>
       <ul
-        className={`relative flex flex-col items-center gap-8 w-full text-gray-100 ${
+        className={`relative flex w-full flex-col items-center gap-8 text-gray-100 overflow-y-auto ${
           expand && "!items-start"
-        }`}>
+        }`}
+      >
         <li className={`${expand && "ml-3"}`}>
           <button className="flex items-center gap-2">
             <Image
@@ -34,7 +37,7 @@ export default function Navbar() {
               className="rounded-full"
             />
             {expand && (
-              <span className="font-extrabold text-sm">LOJA PEGAZUS</span>
+              <span className="text-sm font-extrabold">LOJA PEGAZUS</span>
             )}
           </button>
         </li>
@@ -87,7 +90,7 @@ export default function Navbar() {
           </button>
         </li>
       </ul>
-      <button className="relative bg-orange-500 p-2 rounded-lg">
+      <button className="relative rounded-lg bg-orange-500 p-2">
         <Icon icon="ph:bell-light" width={24} />
       </button>
     </nav>

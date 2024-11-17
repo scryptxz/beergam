@@ -15,25 +15,27 @@ import PhoneSide from "@/assets/images/header-explore/phone-side.png";
 import BushBox from "@/assets/images/header-explore/bush-box.png";
 
 import Image from "next/image";
+import Products from "../products";
 
 type ExploreProps = {
   productsCategory: string;
   setProductsCategory: (value: string) => void;
 };
 
-export default function HeaderExplore(props: ExploreProps) {
+export default function Destacados(props: ExploreProps) {
   const { productsCategory, setProductsCategory } = props;
 
   return (
-    <section className="flex items-center justify-between flex-wrap relative top-16 w-[85%] mx-auto text-white max-2xl:justify-center max-2xl:gap-12 animate__animated animate__fadeIn animate__faster">
+    <section className="animate__animated animate__fadeIn animate__faster relative top-16 mx-auto flex w-[85%] flex-wrap items-center justify-between text-white max-2xl:justify-center max-2xl:gap-12">
       {/* Buscas que cresceram */}
       <div
-        className={`relative group w-[22rem] h-[30rem] opacity-80 rounded-3xl cursor-pointer bg-blue-600 bg-opacity-60 backdrop-blur-3xl hover:opacity-100 hover:bg-opacity-80 duration-500 shadow-2xl ${
+        className={`group relative h-[30rem] w-[22rem] cursor-pointer rounded-3xl bg-blue-600 bg-opacity-60 opacity-80 shadow-2xl backdrop-blur-3xl duration-500 hover:bg-opacity-80 hover:opacity-100 ${
           productsCategory === "mais_cresceram" &&
-          "!opacity-100 !bg-opacity-80 duration-300"
+          "!bg-opacity-80 !opacity-100 duration-300"
         }`}
-        onClick={() => setProductsCategory("mais_cresceram")}>
-        <h2 className="font-bold p-10 text-3xl">Buscas que mais cresceram</h2>
+        onClick={() => setProductsCategory("mais_cresceram")}
+      >
+        <h2 className="p-10 text-3xl font-bold">Buscas que mais cresceram</h2>
         <Image
           src={Vaso}
           alt="Vaso"
@@ -44,23 +46,23 @@ export default function HeaderExplore(props: ExploreProps) {
         <Image
           src={CaixaJardim}
           alt="Caixa de um jardim"
-          className={`absolute bottom-0 -left-12 group-hover:scale-105 group-hover:translate-x-3 duration-500 ${
-            productsCategory === "mais_cresceram" && "scale-105 translate-x-3"
+          className={`absolute -left-12 bottom-0 duration-500 group-hover:translate-x-3 group-hover:scale-105 ${
+            productsCategory === "mais_cresceram" && "translate-x-3 scale-105"
           }`}
         />
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src={Varetas}
             alt="Varetas em um vasinho"
-            className={`absolute bottom-0 right-24 group-hover:scale-105 group-hover:right-20 duration-500 ${
-              productsCategory === "mais_cresceram" && "scale-105 !right-20"
+            className={`absolute bottom-0 right-24 duration-500 group-hover:right-20 group-hover:scale-105 ${
+              productsCategory === "mais_cresceram" && "!right-20 scale-105"
             }`}
           />
           <Image
             src={RedFlower}
             alt="Flores vermelhas"
-            className={`absolute rotate-45 -right-48 bottom-0 group-hover:rotate-0 group-hover:right-0 duration-500 ${
-              productsCategory === "mais_cresceram" && "!rotate-0 !right-0"
+            className={`absolute -right-48 bottom-0 rotate-45 duration-500 group-hover:right-0 group-hover:rotate-0 ${
+              productsCategory === "mais_cresceram" && "!right-0 !rotate-0"
             }`}
           />
         </div>
@@ -68,39 +70,40 @@ export default function HeaderExplore(props: ExploreProps) {
 
       {/* Buscas mais desejadas */}
       <div
-        className={`relative group w-[22rem] h-[30rem] opacity-75 rounded-3xl cursor-pointer bg-gray-100 backdrop-blur-3xl hover:opacity-100 duration-500 shadow-2xl max-lg:hidden ${
+        className={`group relative h-[30rem] w-[22rem] cursor-pointer rounded-3xl bg-gray-100 opacity-75 shadow-2xl backdrop-blur-3xl duration-500 hover:opacity-100 max-lg:hidden ${
           productsCategory === "mais_desejadas" && "!opacity-100"
         }`}
-        onClick={() => setProductsCategory("mais_desejadas")}>
-        <h2 className="font-bold p-10 text-3xl">Buscas mais desejadas</h2>
+        onClick={() => setProductsCategory("mais_desejadas")}
+      >
+        <h2 className="p-10 text-3xl font-bold">Buscas mais desejadas</h2>
         <Image
           src={BlueShirt}
           alt="Camiseta azul"
           className={`absolute -right-16 -top-2 [filter:drop-shadow(10px_0_0_rgba(0,_0,_0,_0.2))] ${
-            productsCategory === "mais_desejadas" && "animate-shake origin-top"
+            productsCategory === "mais_desejadas" && "origin-top animate-shake"
           }`}
         />
         <div className="absolute inset-0 overflow-hidden rounded-3xl">
-          <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-orange-300 rounded-full blur-2xl opacity-50"></div>
+          <div className="absolute -bottom-20 -right-20 h-48 w-48 rounded-full bg-orange-300 opacity-50 blur-2xl"></div>
           <Image
             src={Shoe}
             alt="Tênis"
-            className={`absolute bottom-0 -left-8 top-36 group-hover:scale-105 group-hover:-rotate-6 group-hover:translate-x-8 duration-500 ${
+            className={`absolute -left-8 bottom-0 top-36 duration-500 group-hover:translate-x-8 group-hover:-rotate-6 group-hover:scale-105 ${
               productsCategory === "mais_desejadas" &&
-              "scale-105 -rotate-6 translate-x-8"
+              "translate-x-8 -rotate-6 scale-105"
             }`}
           />
           <Image
             src={Bag}
             alt="Bolsa"
-            className={`absolute top-80 right-0 origin-bottom-left group-hover:scale-110 duration-500 ${
+            className={`absolute right-0 top-80 origin-bottom-left duration-500 group-hover:scale-110 ${
               productsCategory === "mais_desejadas" && "scale-110"
             }`}
           />
           <Image
             src={Bush}
             alt="Arbusto"
-            className={`absolute -left-14 -bottom-32 group-hover:-translate-y-8 group-hover:translate-x-5 group-hover:rotate-12 duration-500 ${
+            className={`absolute -bottom-32 -left-14 duration-500 group-hover:-translate-y-8 group-hover:translate-x-5 group-hover:rotate-12 ${
               productsCategory === "mais_desejadas" &&
               "-translate-y-8 translate-x-5 rotate-12"
             }`}
@@ -110,31 +113,32 @@ export default function HeaderExplore(props: ExploreProps) {
 
       {/* Tendências mais populares */}
       <div
-        className={`relative group w-[22rem] h-[30rem] opacity-75 rounded-3xl cursor-pointer bg-blue-500 bg-opacity-50 backdrop-blur-3xl hover:opacity-100 hover:bg-opacity-80 duration-500 shadow-2xl max-2xl:hidden ${
-          productsCategory === "mais_populares" && "!opacity-100 !bg-opacity-80"
+        className={`group relative h-[30rem] w-[22rem] cursor-pointer rounded-3xl bg-blue-500 bg-opacity-50 opacity-75 shadow-2xl backdrop-blur-3xl duration-500 hover:bg-opacity-80 hover:opacity-100 max-2xl:hidden ${
+          productsCategory === "mais_populares" && "!bg-opacity-80 !opacity-100"
         }`}
-        onClick={() => setProductsCategory("mais_populares")}>
-        <h2 className="font-bold p-10 text-3xl">Tendências mais populares</h2>
+        onClick={() => setProductsCategory("mais_populares")}
+      >
+        <h2 className="p-10 text-3xl font-bold">Tendências mais populares</h2>
         <Image
           src={Phone}
           alt="Smartphone"
-          className={`absolute -right-10 top-24 z-10 [filter:drop-shadow(15px_0_10px_rgba(0,_0,_0,_0.4))] origin-bottom-left group-hover:scale-105 duration-500 ${
+          className={`absolute -right-10 top-24 z-10 origin-bottom-left duration-500 [filter:drop-shadow(15px_0_10px_rgba(0,_0,_0,_0.4))] group-hover:scale-105 ${
             productsCategory === "mais_populares" && "scale-105"
           }`}
         />
         <Image
           src={Headphone}
           alt="Fone de ouvido"
-          className={`absolute top-28 -left-24 group-hover:scale-110 group-hover:-rotate-12 group-hover:-translate-y-8 group-hover:-translate-x-2 duration-500 ${
+          className={`absolute -left-24 top-28 duration-500 group-hover:-translate-x-2 group-hover:-translate-y-8 group-hover:-rotate-12 group-hover:scale-110 ${
             productsCategory === "mais_populares" &&
-            "scale-110 -rotate-12 -translate-y-8 -translate-x-2"
+            "-translate-x-2 -translate-y-8 -rotate-12 scale-110"
           }`}
         />
         <Image
           src={Lemon}
           alt="Limão"
-          className={`absolute right-12 top-28 group-hover:-rotate-6 group-hover:scale-110 origin-bottom-right duration-500 ${
-            productsCategory === "mais_populares" && "scale-110 -rotate-6"
+          className={`absolute right-12 top-28 origin-bottom-right duration-500 group-hover:-rotate-6 group-hover:scale-110 ${
+            productsCategory === "mais_populares" && "-rotate-6 scale-110"
           }`}
         />
         <div className="absolute inset-0 overflow-hidden rounded-3xl">
@@ -148,13 +152,19 @@ export default function HeaderExplore(props: ExploreProps) {
           <Image
             src={BushBox}
             alt="Arbusto"
-            className={`absolute -left-24 -bottom-52 duration-500 group-hover:rotate-12 group-hover:-translate-y-4 ${
+            className={`absolute -bottom-52 -left-24 duration-500 group-hover:-translate-y-4 group-hover:rotate-12 ${
               productsCategory === "mais_populares" &&
-              "rotate-12 -translate-y-4"
+              "-translate-y-4 rotate-12"
             }`}
           />
         </div>
       </div>
+
+      <Products
+        productsCategory={productsCategory}
+        title="As buscas que mais cresceram"
+        title_icon="mdi:information-outline"
+      />
     </section>
   );
 }

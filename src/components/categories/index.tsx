@@ -1,9 +1,9 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 type CategoriesTypes = {
-    icon: string;
-    text: string;
-}
+  icon: string;
+  text: string;
+};
 
 export default function Categories() {
   const categories: CategoriesTypes[] = [
@@ -66,10 +66,13 @@ export default function Categories() {
   ];
 
   return (
-    <section className="flex flex-wrap justify-center mx-auto gap-10 w-[85%] my-36">
+    <section className="mx-auto my-36 flex w-[85%] flex-wrap justify-center gap-10">
       {categories.map((data, index) => (
-        <div className="flex flex-col items-center justify-center bg-white text-center gap-2 w-48 h-32 rounded-xl border-2 border-blue-500 border-opacity-10 shadow-lg p-5 shadow-purple-light hover:bg-blue-50 cursor-pointer hover:-translate-y-1 duration-200" key={index}>
-          <i className="p-2 bg-green-50 rounded-full">
+        <div
+          className="flex h-32 w-48 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-blue-500 border-opacity-10 bg-white p-5 text-center shadow-lg shadow-purple-light duration-200 hover:-translate-y-1 hover:bg-blue-50"
+          key={index}
+        >
+          <i className="rounded-full bg-green-50 p-2">
             <Icon icon={data.icon} width={30} className="text-blue-400" />
           </i>
           <h2 className="font-bold">{data.text}</h2>
