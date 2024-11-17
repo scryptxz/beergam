@@ -1,18 +1,18 @@
-import Vaso from "@/assets/images/header-explore/vaso.png";
-import CaixaJardim from "@/assets/images/header-explore/caixa-jardim.png";
-import Varetas from "@/assets/images/header-explore/varetas.png";
-import RedFlower from "@/assets/images/header-explore/red-flower.png";
+import Vaso from "@/assets/images/destacados/vaso.png";
+import CaixaJardim from "@/assets/images/destacados/caixa-jardim.png";
+import Varetas from "@/assets/images/destacados/varetas.png";
+import RedFlower from "@/assets/images/destacados/red-flower.png";
 
-import BlueShirt from "@/assets/images/header-explore/blue-shirt.png";
-import Bag from "@/assets/images/header-explore/bag-shadow.png";
-import Shoe from "@/assets/images/header-explore/top-shoe.png";
-import Bush from "@/assets/images/header-explore/bush.png";
+import BlueShirt from "@/assets/images/destacados/blue-shirt.png";
+import Bag from "@/assets/images/destacados/bag-shadow.png";
+import Shoe from "@/assets/images/destacados/top-shoe.png";
+import Bush from "@/assets/images/destacados/bush.png";
 
-import Headphone from "@/assets/images/header-explore/headphone.png";
-import Lemon from "@/assets/images/header-explore/lemon.png";
-import Phone from "@/assets/images/header-explore/phone.png";
-import PhoneSide from "@/assets/images/header-explore/phone-side.png";
-import BushBox from "@/assets/images/header-explore/bush-box.png";
+import Headphone from "@/assets/images/destacados/headphone.png";
+import Lemon from "@/assets/images/destacados/lemon.png";
+import Phone from "@/assets/images/destacados/phone.png";
+import PhoneSide from "@/assets/images/destacados/phone-side.png";
+import BushBox from "@/assets/images/destacados/bush-box.png";
 
 import Image from "next/image";
 import Products from "../products";
