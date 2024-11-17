@@ -6,8 +6,8 @@ import { useState } from "react";
 import Favorites from "../favorites";
 
 type ExploreProps = {
-  productsCategory: string | null;
-  setProductsCategory: (value: string | null) => void;
+  productsCategory: string;
+  setProductsCategory: (value: string) => void;
 };
 
 export default function Header(props: ExploreProps) {

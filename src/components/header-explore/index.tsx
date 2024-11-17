@@ -17,8 +17,8 @@ import BushBox from "@/assets/images/header-explore/bush-box.png";
 import Image from "next/image";
 
 type ExploreProps = {
-  productsCategory: string | null;
-  setProductsCategory: (value: string | null) => void;
+  productsCategory: string;
+  setProductsCategory: (value: string) => void;
 };
 
 export default function HeaderExplore(props: ExploreProps) {
@@ -32,11 +32,7 @@ export default function HeaderExplore(props: ExploreProps) {
           productsCategory === "mais_cresceram" &&
           "!opacity-100 !bg-opacity-80 duration-300"
         }`}
-        onClick={() => {
-          productsCategory === "mais_cresceram"
-            ? setProductsCategory(null)
-            : setProductsCategory("mais_cresceram");
-        }}>
+        onClick={() => setProductsCategory("mais_cresceram")}>
         <h2 className="font-bold p-10 text-3xl">Buscas que mais cresceram</h2>
         <Image
           src={Vaso}
@@ -75,11 +71,7 @@ export default function HeaderExplore(props: ExploreProps) {
         className={`relative group w-[22rem] h-[30rem] opacity-75 rounded-3xl cursor-pointer bg-gray-100 backdrop-blur-3xl hover:opacity-100 duration-500 shadow-2xl max-lg:hidden ${
           productsCategory === "mais_desejadas" && "!opacity-100"
         }`}
-        onClick={() => {
-          productsCategory === "mais_desejadas"
-            ? setProductsCategory(null)
-            : setProductsCategory("mais_desejadas");
-        }}>
+        onClick={() => setProductsCategory("mais_desejadas")}>
         <h2 className="font-bold p-10 text-3xl">Buscas mais desejadas</h2>
         <Image
           src={BlueShirt}
@@ -121,11 +113,7 @@ export default function HeaderExplore(props: ExploreProps) {
         className={`relative group w-[22rem] h-[30rem] opacity-75 rounded-3xl cursor-pointer bg-blue-500 bg-opacity-50 backdrop-blur-3xl hover:opacity-100 hover:bg-opacity-80 duration-500 shadow-2xl max-2xl:hidden ${
           productsCategory === "mais_populares" && "!opacity-100 !bg-opacity-80"
         }`}
-        onClick={() => {
-          productsCategory === "mais_populares"
-            ? setProductsCategory(null)
-            : setProductsCategory("mais_populares");
-        }}>
+        onClick={() => setProductsCategory("mais_populares")}>
         <h2 className="font-bold p-10 text-3xl">Tendências mais populares</h2>
         <Image
           src={Phone}

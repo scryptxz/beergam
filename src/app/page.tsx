@@ -6,7 +6,7 @@ import Products from "@/components/products";
 import { useState } from "react";
 
 export default function Home() {
-  const [productsCategory, setProductsCategory] = useState<string | null>(null)
+  const [productsCategory, setProductsCategory] = useState<string>("mais_cresceram")
   return (
     <>
       <Navbar />
