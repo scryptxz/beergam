@@ -8,6 +8,7 @@ export default {
   ],
   theme: {
     colors: {
+      transparent: "rgba(255, 255, 255, 0)",
       white: "#FFF",
       black: "#151514",
       "orange-300": "#FFBD70",
@@ -22,6 +23,34 @@ export default {
       "gray-100": "#D9D9D9",
       "gray-500": "#737373",
       "purple-light": "rgba(101, 52, 248, 0.10)",
+    },
+
+    animation: {
+      expandMenu: "expandMenu 400ms forwards",
+      shake: "shake 400ms ease-in-out",
+    },
+
+    keyframes: {
+      expandMenu: {
+        "0%": {
+          width: "90px",
+        },
+        "100%": {
+          width: "220px",
+        },
+      },
+
+      shake: {
+        "0%": {
+          rotate: "0deg",
+        },
+        "50%": {
+          rotate: "5deg",
+        },
+        "100%": {
+          rotate: "0deg",
+        }
+      }
     },
   },
   plugins: [],
