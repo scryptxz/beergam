@@ -2,8 +2,8 @@ import LogoDesejadas from "@/assets/images/favorites/desejadas-logo.png";
 import LogoCrescimento from "@/assets/images/favorites/crescimento-logo.png";
 import LogoPopulares from "@/assets/images/favorites/populares-logo.png";
 import Image from "next/image";
-import "animate.css";
 import Products from "../products";
+import "animate.css";
 
 export default function Favorites() {
   return (

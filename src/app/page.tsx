@@ -2,6 +2,7 @@
 import Categories from "@/components/categories";
 import Header from "@/components/header";
 import Navbar from "@/components/navbar";
+import NavbarMobile from "@/components/navbar-mobile";
 import { useState } from "react";
 
 export default function Home() {
@@ -10,10 +11,11 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <NavbarMobile />
       <Header
         productsCategory={productsCategory}
         setProductsCategory={setProductsCategory}
-      />{" "}
+      />
       <Categories />
     </>
   );

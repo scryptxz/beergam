@@ -9,8 +9,10 @@ import Nike from "@/assets/images/products/nike.png";
 import Escova from "@/assets/images/products/escova.png";
 import Drill from "@/assets/images/products/drill.png";
 import Buds from "@/assets/images/products/bluetooth-buds.png";
+import InfoProduct from "../info-product";
+import { useState } from "react";
 
-type ProductsTypes = {
+type ProductTypes = {
   main_image: StaticImageData;
   preview_images: StaticImageData[];
   title: string;
@@ -18,13 +20,14 @@ type ProductsTypes = {
   shop: string;
   price: number;
   announces: number;
+  description: string;
 };
 
-type ProductsTypesCategory = {
-  mais_cresceram: ProductsTypes[];
-  mais_desejadas: ProductsTypes[];
-  mais_populares: ProductsTypes[];
-  favoritos: ProductsTypes[];
+type ProductTypesCategory = {
+  mais_cresceram: ProductTypes[];
+  mais_desejadas: ProductTypes[];
+  mais_populares: ProductTypes[];
+  favoritos: ProductTypes[];
 };
 
 type ProductsProps = {
@@ -34,8 +37,19 @@ type ProductsProps = {
 };
 
 export default function Products(props: ProductsProps) {
+  const [showInfo, setShowInfo] = useState(false);
+  const [productInfo, setProductInfo] = useState<ProductTypes>({
+    main_image: Basketball,
+    preview_images: [Basketball, Basketball, Basketball],
+    title: "",
+    alert: "",
+    shop: "",
+    price: 0,
+    announces: 0,
+    description: "",
+  });
   const { productsCategory, title, title_icon } = props;
-  const products: ProductsTypesCategory = {
+  const products: ProductTypesCategory = {
     mais_cresceram: [
       {
         main_image: XboxController,
@@ -45,6 +59,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 425.0,
         announces: 869,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
       {
         main_image: Bicycle,
@@ -54,6 +70,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 900.0,
         announces: 357,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
       {
         main_image: Basketball,
@@ -63,6 +81,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 130.0,
         announces: 654,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
       {
         main_image: GymBike,
@@ -72,6 +92,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 425.0,
         announces: 223,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
     ],
     mais_desejadas: [
@@ -83,6 +105,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 900.0,
         announces: 954,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
       {
         main_image: XboxController,
@@ -92,6 +116,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 425.0,
         announces: 869,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
       {
         main_image: GymBike,
@@ -101,6 +127,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 425.0,
         announces: 223,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
       {
         main_image: Basketball,
@@ -110,6 +138,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 130.0,
         announces: 654,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
     ],
     mais_populares: [
@@ -121,6 +151,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 130.0,
         announces: 654,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
       {
         main_image: Bicycle,
@@ -130,6 +162,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 900.0,
         announces: 357,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
       {
         main_image: Escova,
@@ -139,6 +173,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 105.0,
         announces: 219,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
       {
         main_image: GymBike,
@@ -148,6 +184,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 425.0,
         announces: 223,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
     ],
     favoritos: [
@@ -159,6 +197,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 425.0,
         announces: 869,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
       {
         main_image: Bicycle,
@@ -168,6 +208,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 900.0,
         announces: 357,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
       {
         main_image: Drill,
@@ -177,6 +219,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 169.0,
         announces: 357,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
       {
         main_image: Buds,
@@ -186,6 +230,8 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 31.0,
         announces: 432,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
       {
         main_image: GymBike,
@@ -195,97 +241,129 @@ export default function Products(props: ProductsProps) {
         shop: "Mercado Livre",
         price: 425.0,
         announces: 223,
+        description:
+          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia rem quidem praesentium qui, repellat, quos hic atque accusantium dolorem, facere doloribus ducimus. Est obcaecati, atque voluptates adipisci unde, iste sed maiores nisi, consectetur fugiat aliquid id perspiciatis. Eos eaque aliquid nostrum sequi voluptatem numquam adipisci voluptate, neque amet nemo voluptates?",
       },
     ],
   };
+
+  const handleProductInfo = (product: ProductTypes) => {
+    setProductInfo({
+      main_image: product.main_image,
+      preview_images: [
+        product.main_image,
+        product.main_image,
+        product.main_image,
+      ],
+      title: product.title,
+      alert: product.alert,
+      shop: product.shop,
+      price: product.price,
+      announces: product.announces,
+      description: product.description,
+    });
+    setShowInfo(true);
+  };
+
   return (
-    <section className="mt-32 w-full text-black">
-      <h2 className="mb-10 text-2xl font-bold">
-        {title}
-        <Icon
-          icon={title_icon}
-          width={30}
-          className="ml-2 inline align-middle text-gray-100"
-        />
-      </h2>
-      <div className="flex flex-wrap items-center justify-between gap-x-5 gap-y-10 max-lg:justify-center">
-        {products[productsCategory as keyof ProductsTypesCategory].map(
-          (data, index) => (
-            <div
-              className="group flex h-[27rem] w-[23rem] flex-col justify-between rounded-xl bg-white p-4 shadow-xl"
-              key={index}
-            >
-              <div className="relative flex h-40 w-80 items-center justify-start rounded-xl border-2 border-purple-light p-5 shadow-lg shadow-purple-light">
-                <Image
-                  src={data.main_image}
-                  width={150}
-                  alt="Controle de Xbox"
-                  className="origin-bottom-left duration-300 group-hover:scale-105"
-                />
-                <div className="absolute right-2 top-0 flex flex-col">
-                  <button className="relative size-14 overflow-hidden rounded-full border border-gray-100 bg-white">
-                    <Image
-                      src={data.preview_images[0]}
-                      alt="Controle de Xbox"
-                    />
-                  </button>
-                  <button className="relative -top-2 size-16 overflow-hidden rounded-full border border-gray-100 bg-white">
-                    <Image
-                      src={data.preview_images[1]}
-                      alt="Controle de Xbox"
-                      className="absolute top-2 scale-125"
-                    />
-                  </button>
-                  <button className="relative -top-4 size-14 overflow-hidden rounded-full border border-gray-100 bg-white">
-                    <Image
-                      src={data.preview_images[2]}
-                      alt="Controle de Xbox"
-                      className="absolute top-2 scale-125"
-                    />
-                  </button>
-                </div>
-              </div>
-              <h3 className="text-lg font-bold">{data.title}</h3>
-              <p className="font-semibold text-blue-400">
-                {data.alert}{" "}
-                <span className="text-gray-500">| {data.shop}</span>
-              </p>
-              <div className="flex items-center gap-4">
-                <span className="rounded-full bg-gray-50 p-2">
-                  <Icon
-                    icon="mdi:information"
-                    width={20}
-                    className="text-gray-500"
+    <>
+      {showInfo && (
+        <InfoProduct setShowInfo={setShowInfo} product_info={productInfo} />
+      )}
+      <section className="mt-32 w-full text-black">
+        <h2 className="mb-10 text-2xl font-bold">
+          {title}
+          <Icon
+            icon={title_icon}
+            width={30}
+            className="ml-2 inline align-middle text-gray-100"
+          />
+        </h2>
+        <div className="flex flex-wrap items-center justify-between gap-x-5 gap-y-10 max-lg:justify-center">
+          {products[productsCategory as keyof ProductTypesCategory].map(
+            (data, index) => (
+              <div
+                className="group flex h-[27rem] w-[23rem] flex-col justify-between rounded-xl bg-white p-4 shadow-xl"
+                key={index}
+              >
+                <div className="relative flex h-40 w-80 items-center justify-start rounded-xl border-2 border-purple-light p-5 shadow-lg shadow-purple-light">
+                  <Image
+                    src={data.main_image}
+                    width={150}
+                    alt="Controle de Xbox"
+                    className="origin-bottom-left duration-300 group-hover:scale-105"
                   />
-                </span>
-                <span className="rounded-full bg-gray-50 p-2">
-                  <Icon
-                    icon="mdi:search"
-                    width={20}
-                    className="text-gray-500"
-                  />
-                </span>
-                <span className="rounded-full bg-gray-50 p-2 font-semibold text-blue-400">
-                  {new Intl.NumberFormat("ja-JP", {
-                    style: "currency",
-                    currency: "BRL",
-                  }).format(data.price)}
-                </span>
-              </div>
-              <div className="flex justify-between text-orange-500">
-                <div className="flex items-center gap-2">
-                  <Icon icon="clarity:building-line" width={20} />
-                  <span>{data.announces} anúncios</span>
+                  <div className="absolute right-2 top-0 flex flex-col">
+                    <button className="relative size-14 overflow-hidden rounded-full border border-gray-100 bg-white">
+                      <Image
+                        src={data.preview_images[0]}
+                        alt="Controle de Xbox"
+                      />
+                    </button>
+                    <button className="relative -top-2 size-16 overflow-hidden rounded-full border border-gray-100 bg-white">
+                      <Image
+                        src={data.preview_images[1]}
+                        alt="Controle de Xbox"
+                        className="absolute top-2 scale-125"
+                      />
+                    </button>
+                    <button className="relative -top-4 size-14 overflow-hidden rounded-full border border-gray-100 bg-white">
+                      <Image
+                        src={data.preview_images[2]}
+                        alt="Controle de Xbox"
+                        className="absolute top-2 scale-125"
+                      />
+                    </button>
+                  </div>
                 </div>
-                <Icon icon="mdi:heart-outline" width={25} />
+                <h3 className="text-lg font-bold">{data.title}</h3>
+                <p className="font-semibold text-blue-400">
+                  {data.alert}{" "}
+                  <span className="text-gray-500">| {data.shop}</span>
+                </p>
+                <div
+                  className="flex items-center gap-4"
+                  onClick={() => setShowInfo(true)}
+                >
+                  <button className="rounded-full bg-gray-50 p-2" onClick={() => handleProductInfo(data)}>
+                    <Icon
+                      icon="mdi:information"
+                      width={20}
+                      className="text-gray-500"
+                    />
+                  </button>
+                  <span className="rounded-full bg-gray-50 p-2">
+                    <Icon
+                      icon="mdi:search"
+                      width={20}
+                      className="text-gray-500"
+                    />
+                  </span>
+                  <span className="rounded-full bg-gray-50 p-2 font-semibold text-blue-400">
+                    {new Intl.NumberFormat("ja-JP", {
+                      style: "currency",
+                      currency: "BRL",
+                    }).format(data.price)}
+                  </span>
+                </div>
+                <div className="flex justify-between text-orange-500">
+                  <div className="flex items-center gap-2">
+                    <Icon icon="clarity:building-line" width={20} />
+                    <span>{data.announces} anúncios</span>
+                  </div>
+                  <Icon icon="mdi:heart-outline" width={25} />
+                </div>
+                <button
+                  className="mt-4 rounded-xl border border-orange-500 py-2 text-orange-500 duration-200 hover:bg-orange-500 hover:text-white"
+                  onClick={() => handleProductInfo(data)}
+                >
+                  Saiba mais
+                </button>
               </div>
-              <button className="mt-4 rounded-xl border border-orange-500 py-2 text-orange-500 duration-200 hover:bg-orange-500 hover:text-white">
-                Saiba mais
-              </button>
-            </div>
-          ),
-        )}
-      </div>
-    </section>
+            ),
+          )}
+        </div>
+      </section>
+    </>
   );
 }

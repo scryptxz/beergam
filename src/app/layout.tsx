@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Beergam",
-  icons: { icon: [{ url: "./icon.ico" }] },
+  icons: { icon: [{ url: "favicon.ico" }] },
 };
 
 export default function RootLayout({

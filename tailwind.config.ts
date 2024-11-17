@@ -19,6 +19,7 @@ export default {
       "blue-500": "#003CB7",
       "blue-600": "#284277",
       "green-50": "#F0FDFA",
+      "green-600": "#10A142",
       "gray-50": "#F5F5F5",
       "gray-100": "#D9D9D9",
       "gray-500": "#737373",
@@ -27,7 +28,6 @@ export default {
 
     animation: {
       expandMenu: "expandMenu 400ms forwards",
-      shake: "shake 400ms ease-in-out",
     },
 
     keyframes: {
@@ -39,20 +39,6 @@ export default {
           width: "220px",
         },
       },
-
-      shake: {
-        "0%": {
-          rotate: "0deg",
-        },
-        "50%": {
-          rotate: "5deg",
-        },
-        "100%": {
-          rotate: "0deg",
-        }
-      }
-
-      
     },
   },
   plugins: [],

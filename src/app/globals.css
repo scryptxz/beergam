@@ -6,4 +6,9 @@
 
 body {
   font-family: "Nunito", sans-serif;
+  color: #151514;
+}
+
+.destacados img {
+  user-select: none;
 }

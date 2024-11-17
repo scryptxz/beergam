@@ -16,6 +16,7 @@ import BushBox from "@/assets/images/destacados/bush-box.png";
 
 import Image from "next/image";
 import Products from "../products";
+import "animate.css";
 
 type ExploreProps = {
   productsCategory: string;
@@ -26,7 +27,7 @@ export default function Destacados(props: ExploreProps) {
   const { productsCategory, setProductsCategory } = props;
 
   return (
-    <section className="animate__animated animate__fadeIn animate__faster relative top-16 mx-auto flex w-[85%] flex-wrap items-center justify-between text-white max-2xl:justify-center max-2xl:gap-12">
+    <section className="animate__animated animate__fadeIn animate__faster destacados relative top-16 mx-auto flex w-[85%] flex-wrap items-center justify-between text-white max-2xl:justify-center max-2xl:gap-12">
       {/* Buscas que cresceram */}
       <div
         className={`group relative h-[30rem] w-[22rem] cursor-pointer rounded-3xl bg-blue-600 bg-opacity-60 opacity-80 shadow-2xl backdrop-blur-3xl duration-500 hover:bg-opacity-80 hover:opacity-100 ${
@@ -40,7 +41,7 @@ export default function Destacados(props: ExploreProps) {
           src={Vaso}
           alt="Vaso"
           className={`absolute -right-7 top-5 [filter:drop-shadow(15px_0_10px_rgba(0,_0,_0,_0.5))] ${
-            productsCategory === "mais_cresceram" && "animate-shake"
+            productsCategory === "mais_cresceram" && "animate__animated animate__swing"
           }`}
         />
         <Image
@@ -50,7 +51,7 @@ export default function Destacados(props: ExploreProps) {
             productsCategory === "mais_cresceram" && "translate-x-3 scale-105"
           }`}
         />
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-clip">
           <Image
             src={Varetas}
             alt="Varetas em um vasinho"
@@ -80,10 +81,10 @@ export default function Destacados(props: ExploreProps) {
           src={BlueShirt}
           alt="Camiseta azul"
           className={`absolute -right-16 -top-2 [filter:drop-shadow(10px_0_0_rgba(0,_0,_0,_0.2))] ${
-            productsCategory === "mais_desejadas" && "origin-top animate-shake"
+            productsCategory === "mais_desejadas" && "animate__animated animate__swing"
           }`}
         />
-        <div className="absolute inset-0 overflow-hidden rounded-3xl">
+        <div className="absolute inset-0 overflow-clip rounded-3xl">
           <div className="absolute -bottom-20 -right-20 h-48 w-48 rounded-full bg-orange-300 opacity-50 blur-2xl"></div>
           <Image
             src={Shoe}
@@ -141,7 +142,7 @@ export default function Destacados(props: ExploreProps) {
             productsCategory === "mais_populares" && "-rotate-6 scale-110"
           }`}
         />
-        <div className="absolute inset-0 overflow-hidden rounded-3xl">
+        <div className="absolute inset-0 overflow-clip rounded-3xl">
           <Image
             src={PhoneSide}
             alt="Lado de um smartphone"
