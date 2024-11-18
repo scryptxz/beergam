@@ -10,7 +10,7 @@ import Escova from "@/assets/images/products/escova.png";
 import Drill from "@/assets/images/products/drill.png";
 import Buds from "@/assets/images/products/bluetooth-buds.png";
 import InfoProduct from "../info-product";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type ProductTypes = {
   main_image: StaticImageData;
@@ -265,20 +265,37 @@ export default function Products(props: ProductsProps) {
     setShowInfo(true);
   };
 
+  useEffect(() => {
+    if (showInfo) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "visible";
+  }, [showInfo]);
+
   return (
     <>
       {showInfo && (
         <InfoProduct setShowInfo={setShowInfo} product_info={productInfo} />
       )}
       <section className="mt-32 w-full text-black">
-        <h2 className="mb-10 text-2xl font-bold">
-          {title}
-          <Icon
-            icon={title_icon}
-            width={30}
-            className="ml-2 inline align-middle text-gray-200"
-          />
-        </h2>
+        <div className="flex flex-wrap justify-between max-lg:justify-center">
+          <h2 className="mb-10 text-2xl font-bold">
+            {title}
+            <Icon
+              icon={title_icon}
+              width={30}
+              className="ml-2 inline align-middle text-gray-200"
+            />
+          </h2>
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Buscar por..."
+              className="rounded-full py-3 pl-14 pr-6 shadow-lg shadow-purple-light outline-none"
+            />
+            <button className="absolute left-2 top-2 rounded-full bg-orange-500 p-1.5 text-white">
+              <Icon icon="mdi:search" width={18} />
+            </button>
+          </div>
+        </div>
         <div className="flex flex-wrap items-center justify-between gap-x-5 gap-y-10 max-lg:justify-center">
           {products[productsCategory as keyof ProductTypesCategory].map(
             (data, index) => (
@@ -340,7 +357,7 @@ export default function Products(props: ProductsProps) {
                     />
                   </span>
                   <span className="rounded-full bg-gray-50 p-2 font-semibold text-blue-400">
-                    {new Intl.NumberFormat("ja-JP", {
+                    {new Intl.NumberFormat("pt-BR", {
                       style: "currency",
                       currency: "BRL",
                     }).format(data.price)}

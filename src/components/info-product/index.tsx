@@ -3,6 +3,8 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 
 import Chart from "@/assets/images/info-product/chart.png";
 import "animate.css";
+import PriceInfo from "../price-info";
+import { useState } from "react";
 
 type ProductInfoTypes = {
   main_image: StaticImageData;
@@ -24,12 +26,12 @@ export default function InfoProduct(props: InfoProductProps) {
 
   // Quando o usuário apertar a tecla ESC, fechar a janela
   document.addEventListener("keydown", (event) => {
-    console.log(event);
-
     if (event.key === "Escape") {
       setShowInfo(false);
     }
   });
+
+  const [showPriceInfo, setShowPriceIndo] = useState(false);
 
   return (
     <div
@@ -42,6 +44,7 @@ export default function InfoProduct(props: InfoProductProps) {
         className="animate__animated animate__zoomIn animate__faster relative m-12 flex h-[80vh] flex-wrap items-center justify-center gap-y-20 overflow-y-auto rounded-3xl bg-white px-10 py-16 text-black"
         onClick={(e) => e.stopPropagation()}
       >
+        <div className="absolute -left-48 -top-48 -z-10 h-[35rem] w-[35rem] rounded-full bg-orange-300 opacity-15 blur-3xl"></div>
         <button
           className="absolute right-6 top-4 text-orange-500"
           onClick={() => setShowInfo(false)}
@@ -57,8 +60,12 @@ export default function InfoProduct(props: InfoProductProps) {
               className="origin-bottom-left duration-300"
             />
           </div>
-          <span className="self-end rounded-full bg-gray-50 p-2 font-semibold text-blue-400">
-            {new Intl.NumberFormat("ja-JP", {
+          {showPriceInfo && <PriceInfo />}
+          <span className="flex items-center gap-2 self-end rounded-full bg-gray-50 p-2 text-lg font-bold text-blue-400">
+            <button onClick={() => setShowPriceIndo(!showPriceInfo)}>
+              <Icon icon="mdi:information-outline" width={20} />
+            </button>
+            {new Intl.NumberFormat("pt-BR", {
               style: "currency",
               currency: "BRL",
             }).format(product_info.price)}

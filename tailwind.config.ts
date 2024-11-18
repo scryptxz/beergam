@@ -19,12 +19,14 @@ export default {
       "blue-400": "#487AF9",
       "blue-500": "#003CB7",
       "blue-600": "#284277",
+      "blue-700": "#182847",
       "green-50": "#F0FDFA",
       "green-600": "#10A142",
       "gray-50": "#F5F5F5",
       "gray-100": "#efefef",
       "gray-200": "#D9D9D9",
       "gray-500": "#737373",
+      "red-500": "#ca0000",
       "purple-light": "rgba(101, 52, 248, 0.10)",
     },
 
@@ -40,6 +42,11 @@ export default {
         "100%": {
           width: "220px",
         },
+      },
+    },
+    extend: {
+      boxShadow: {
+        "3xl": "0 4px 15px 0 rgba(101, 52, 248, 0.15)",
       },
     },
   },

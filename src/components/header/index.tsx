@@ -41,7 +41,7 @@ export default function Header() {
             <Image
               src={IllustrationBg1}
               alt=""
-              className={`absolute left-80 top-[5rem] opacity-0 ${
+              className={`absolute left-80 top-[5rem] opacity-0 max-lg:hidden ${
                 productsCategory === "mais_cresceram" &&
                 "!top-0 !opacity-100 duration-500"
               }`}
@@ -49,7 +49,7 @@ export default function Header() {
             <Image
               src={IllustrationBg2}
               alt=""
-              className={`absolute right-[25%] top-[5rem] opacity-0 ${
+              className={`absolute right-[25%] top-[5rem] opacity-0 max-lg:hidden ${
                 productsCategory === "mais_desejadas" &&
                 "!top-0 !opacity-100 duration-500"
               }`}
@@ -57,7 +57,7 @@ export default function Header() {
             <Image
               src={IllustrationBg3}
               alt=""
-              className={`absolute right-40 top-[5rem] opacity-0 ${
+              className={`absolute right-40 top-[5rem] opacity-0 max-lg:hidden ${
                 productsCategory === "mais_populares" &&
                 "!top-0 !opacity-100 duration-500"
               }`}
