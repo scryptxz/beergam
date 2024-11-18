@@ -41,7 +41,8 @@ export default function Destacados(props: ExploreProps) {
           src={Vaso}
           alt="Vaso"
           className={`absolute -right-7 top-5 [filter:drop-shadow(15px_0_10px_rgba(0,_0,_0,_0.5))] ${
-            productsCategory === "mais_cresceram" && "animate__animated animate__swing"
+            productsCategory === "mais_cresceram" &&
+            "animate__animated animate__swing"
           }`}
         />
         <Image
@@ -71,7 +72,7 @@ export default function Destacados(props: ExploreProps) {
 
       {/* Buscas mais desejadas */}
       <div
-        className={`group relative h-[30rem] w-[22rem] cursor-pointer rounded-3xl bg-gray-100 opacity-75 shadow-2xl backdrop-blur-3xl duration-500 hover:opacity-100 max-lg:hidden ${
+        className={`bg-gray-200 group relative h-[30rem] w-[22rem] cursor-pointer rounded-3xl opacity-75 shadow-2xl backdrop-blur-3xl duration-500 hover:opacity-100 max-lg:hidden ${
           productsCategory === "mais_desejadas" && "!opacity-100"
         }`}
         onClick={() => setProductsCategory("mais_desejadas")}
@@ -81,7 +82,8 @@ export default function Destacados(props: ExploreProps) {
           src={BlueShirt}
           alt="Camiseta azul"
           className={`absolute -right-16 -top-2 [filter:drop-shadow(10px_0_0_rgba(0,_0,_0,_0.2))] ${
-            productsCategory === "mais_desejadas" && "animate__animated animate__swing"
+            productsCategory === "mais_desejadas" &&
+            "animate__animated animate__swing"
           }`}
         />
         <div className="absolute inset-0 overflow-clip rounded-3xl">

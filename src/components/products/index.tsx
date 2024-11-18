@@ -276,14 +276,14 @@ export default function Products(props: ProductsProps) {
           <Icon
             icon={title_icon}
             width={30}
-            className="ml-2 inline align-middle text-gray-100"
+            className="ml-2 inline align-middle text-gray-200"
           />
         </h2>
         <div className="flex flex-wrap items-center justify-between gap-x-5 gap-y-10 max-lg:justify-center">
           {products[productsCategory as keyof ProductTypesCategory].map(
             (data, index) => (
               <div
-                className="group flex h-[27rem] w-[23rem] flex-col justify-between rounded-xl bg-white p-4 shadow-xl"
+                className="flex h-[27rem] w-[23rem] flex-col justify-between rounded-xl bg-white p-4 shadow-xl"
                 key={index}
               >
                 <div className="relative flex h-40 w-80 items-center justify-start rounded-xl border-2 border-purple-light p-5 shadow-lg shadow-purple-light">
@@ -291,23 +291,23 @@ export default function Products(props: ProductsProps) {
                     src={data.main_image}
                     width={150}
                     alt="Controle de Xbox"
-                    className="origin-bottom-left duration-300 group-hover:scale-105"
+                    className="origin-bottom-left duration-300"
                   />
                   <div className="absolute right-2 top-0 flex flex-col">
-                    <button className="relative size-14 overflow-hidden rounded-full border border-gray-100 bg-white">
+                    <button className="relative size-14 overflow-hidden rounded-full border border-gray-200 bg-white">
                       <Image
                         src={data.preview_images[0]}
                         alt="Controle de Xbox"
                       />
                     </button>
-                    <button className="relative -top-2 size-16 overflow-hidden rounded-full border border-gray-100 bg-white">
+                    <button className="relative -top-2 size-16 overflow-hidden rounded-full border border-gray-200 bg-white">
                       <Image
                         src={data.preview_images[1]}
                         alt="Controle de Xbox"
                         className="absolute top-2 scale-125"
                       />
                     </button>
-                    <button className="relative -top-4 size-14 overflow-hidden rounded-full border border-gray-100 bg-white">
+                    <button className="relative -top-4 size-14 overflow-hidden rounded-full border border-gray-200 bg-white">
                       <Image
                         src={data.preview_images[2]}
                         alt="Controle de Xbox"
@@ -321,11 +321,11 @@ export default function Products(props: ProductsProps) {
                   {data.alert}{" "}
                   <span className="text-gray-500">| {data.shop}</span>
                 </p>
-                <div
-                  className="flex items-center gap-4"
-                  onClick={() => setShowInfo(true)}
-                >
-                  <button className="rounded-full bg-gray-50 p-2" onClick={() => handleProductInfo(data)}>
+                <div className="flex items-center gap-4">
+                  <button
+                    className="rounded-full bg-gray-50 p-2"
+                    onClick={() => handleProductInfo(data)}
+                  >
                     <Icon
                       icon="mdi:information"
                       width={20}
@@ -351,7 +351,9 @@ export default function Products(props: ProductsProps) {
                     <Icon icon="clarity:building-line" width={20} />
                     <span>{data.announces} anúncios</span>
                   </div>
-                  <Icon icon="mdi:heart-outline" width={25} />
+                  <button>
+                    <Icon icon="mdi:heart-outline" width={25} />
+                  </button>
                 </div>
                 <button
                   className="mt-4 rounded-xl border border-orange-500 py-2 text-orange-500 duration-200 hover:bg-orange-500 hover:text-white"

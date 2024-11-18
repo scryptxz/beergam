@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import NavLogo from "@/assets/images/nav-logo.png";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [expand, setExpand] = useState(false);
@@ -24,7 +25,7 @@ export default function Navbar() {
         )}
       </button>
       <ul
-        className={`relative flex w-full flex-col items-center gap-8 text-gray-100 overflow-y-auto ${
+        className={`relative flex w-full flex-col items-center gap-8 text-gray-200 ${
           expand && "!items-start"
         }`}
       >
@@ -60,10 +61,10 @@ export default function Navbar() {
           </button>
         </li>
         <li className={`${expand && "ml-3"}`}>
-          <button className="flex items-center gap-2">
+          <Link href={"/"} className="flex items-center gap-2">
             <Icon icon="ph:chart-line-light" width={24} />
             {expand && <span className="text-xs">Vendas</span>}
-          </button>
+          </Link>
         </li>
         <li className={`${expand && "ml-3"}`}>
           <button className="flex items-center gap-2">
@@ -78,10 +79,10 @@ export default function Navbar() {
           </button>
         </li>
         <li className={`${expand && "ml-3"}`}>
-          <button className="flex items-center gap-2">
+          <Link href={"/pesquisas"} className="flex items-center gap-2">
             <Icon icon="circum:route" width={24} />
             {expand && <span className="text-xs">Rastreio</span>}
-          </button>
+          </Link>
         </li>
         <li className={`${expand && "ml-3"}`}>
           <button className="flex items-center gap-2">

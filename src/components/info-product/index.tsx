@@ -21,22 +21,40 @@ type InfoProductProps = {
 
 export default function InfoProduct(props: InfoProductProps) {
   const { setShowInfo, product_info } = props;
+
+  // Quando o usuário apertar a tecla ESC, fechar a janela
+  document.addEventListener("keydown", (event) => {
+    console.log(event);
+
+    if (event.key === "Escape") {
+      setShowInfo(false);
+    }
+  });
+
   return (
-    <div className="fixed inset-0 z-50 flex min-h-screen w-full items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-      <div className="animate__animated animate__zoomIn animate__faster relative m-12 flex h-[80vh] flex-wrap items-center justify-center gap-y-20 overflow-y-auto rounded-3xl bg-white px-10 py-16 text-black">
+    <div
+      className="fixed inset-0 z-50 flex min-h-screen w-full items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
+      onClick={() => {
+        setShowInfo(false);
+      }}
+    >
+      <div
+        className="animate__animated animate__zoomIn animate__faster relative m-12 flex h-[80vh] flex-wrap items-center justify-center gap-y-20 overflow-y-auto rounded-3xl bg-white px-10 py-16 text-black"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           className="absolute right-6 top-4 text-orange-500"
           onClick={() => setShowInfo(false)}
         >
           <Icon icon="mdi:window-close" width={40} />
         </button>
-        <div className="group flex flex-col gap-5 rounded-xl bg-white p-4 shadow-xl">
+        <div className="flex flex-col gap-5 rounded-xl bg-white p-4 shadow-xl">
           <div className="relative flex items-center justify-start rounded-xl border-2 border-purple-light p-5 shadow-lg shadow-purple-light">
             <Image
               src={product_info.main_image}
               alt="Controle de Xbox"
               width={300}
-              className="origin-bottom-left duration-300 group-hover:scale-105"
+              className="origin-bottom-left duration-300"
             />
           </div>
           <span className="self-end rounded-full bg-gray-50 p-2 font-semibold text-blue-400">
@@ -70,7 +88,7 @@ export default function InfoProduct(props: InfoProductProps) {
             <div className="text-lg">
               <div className="relative overflow-clip rounded-xl px-9 py-3 shadow-md shadow-purple-light">
                 <div className="absolute -left-6 top-0 h-full w-12 bg-orange-500"></div>
-                <div className="text-green-600 flex items-center gap-2">
+                <div className="flex items-center gap-2 text-green-600">
                   <span className="font-semibold text-black">100mil+</span>
                   <Icon
                     icon="mdi:arrow-up-thin"
@@ -83,7 +101,7 @@ export default function InfoProduct(props: InfoProductProps) {
               </div>
               <div className="relative mt-10 overflow-clip rounded-xl px-9 py-3 shadow-md shadow-purple-light">
                 <div className="absolute -left-6 top-0 h-full w-12 bg-orange-500"></div>
-                <div className="text-green-600 flex items-center gap-2">
+                <div className="flex items-center gap-2 text-green-600">
                   <span className="font-semibold text-black">Há 20 horas</span>
                   <Icon icon="uil:arrow-growth" width={20} className="inline" />
                   <span>1.000%</span>

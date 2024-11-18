@@ -1,17 +1,16 @@
 import Image from "next/image";
 import TendenciasLogo from "@/assets/images/ph-logo.png";
+import IllustrationBg1 from "@/assets/images/header/illustration-header-1.png";
+import IllustrationBg2 from "@/assets/images/header/illustration-header-2.png";
+import IllustrationBg3 from "@/assets/images/header/illustration-header-3.png";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Destacados from "../destacados";
 import { useState } from "react";
 import Favorites from "../favorites";
 
-type ExploreProps = {
-  productsCategory: string;
-  setProductsCategory: (value: string) => void;
-};
-
-export default function Header(props: ExploreProps) {
-  const { productsCategory, setProductsCategory } = props;
+export default function Header() {
+  const [productsCategory, setProductsCategory] =
+    useState<string>("mais_cresceram");
 
   const [tab, setTab] = useState("destacados");
   return (
@@ -35,6 +34,37 @@ export default function Header(props: ExploreProps) {
             d="M0,256L34.3,261.3C68.6,267,137,277,206,266.7C274.3,256,343,224,411,208C480,192,549,192,617,202.7C685.7,213,754,235,823,240C891.4,245,960,235,1029,240C1097.1,245,1166,267,1234,272C1302.9,277,1371,267,1406,261.3L1440,256L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
           ></path>
         </svg>
+
+        {/* Background illustration */}
+        {tab === "destacados" && (
+          <>
+            <Image
+              src={IllustrationBg1}
+              alt=""
+              className={`absolute left-80 top-[5rem] opacity-0 ${
+                productsCategory === "mais_cresceram" &&
+                "!top-0 !opacity-100 duration-500"
+              }`}
+            />
+            <Image
+              src={IllustrationBg2}
+              alt=""
+              className={`absolute right-[25%] top-[5rem] opacity-0 ${
+                productsCategory === "mais_desejadas" &&
+                "!top-0 !opacity-100 duration-500"
+              }`}
+            />
+            <Image
+              src={IllustrationBg3}
+              alt=""
+              className={`absolute right-40 top-[5rem] opacity-0 ${
+                productsCategory === "mais_populares" &&
+                "!top-0 !opacity-100 duration-500"
+              }`}
+            />
+          </>
+        )}
+
         <div className="mx-auto flex w-[85%] flex-wrap items-start gap-12 font-bold max-lg:justify-center max-lg:gap-2">
           {/* Logo */}
           <div className="flex items-center gap-4">

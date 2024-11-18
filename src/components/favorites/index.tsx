@@ -18,7 +18,7 @@ export default function Favorites() {
             <span className="text-blue-400">30%</span> Participação geral
           </p>
           <div className="relative">
-            <hr className="!h-1 w-full border-none bg-gray-100" />
+            <hr className="bg-gray-200 !h-1 w-full border-none" />
             <hr className="absolute inset-0 !h-1 w-[30%] border-none bg-blue-400" />
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function Favorites() {
             <span className="text-orange-500">40%</span> Participação geral
           </p>
           <div className="relative">
-            <hr className="!h-1 w-full border-none bg-gray-100" />
+            <hr className="bg-gray-200 !h-1 w-full border-none" />
             <hr className="absolute inset-0 !h-1 w-[40%] border-none bg-orange-500" />
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function Favorites() {
             <span className="text-blue-600">50%</span> Participação geral
           </p>
           <div className="relative">
-            <hr className="!h-1 w-full border-none bg-gray-100" />
+            <hr className="bg-gray-200 !h-1 w-full border-none" />
             <hr className="absolute inset-0 !h-1 w-[50%] border-none bg-blue-600" />
           </div>
         </div>
