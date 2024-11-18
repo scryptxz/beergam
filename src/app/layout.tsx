@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/navbar";
@@ -14,12 +15,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-gradient-to-b from-white to-blue-100">
-        <Navbar />
-        <NavbarMobile />
-        {children}
-      </body>
-    </html>
+    <>
+      <Analytics />
+      <html lang="en">
+        <body className="min-h-screen bg-gradient-to-b from-white to-blue-100">
+          <Navbar />
+          <NavbarMobile />
+          {children}
+        </body>
+      </html>
+    </>
   );
 }
