@@ -111,7 +111,7 @@ export default function InfoProduct(props: InfoProductProps) {
                 <div className="flex items-center gap-2 text-green-600">
                   <span className="font-semibold text-black">Há 20 horas</span>
                   <Icon icon="uil:arrow-growth" width={20} className="inline" />
-                  <span>1.000%</span>
+                  <span>Ativa</span>
                 </div>
                 <p className="text-base text-gray-500">Volume de pesquisa</p>
               </div>
